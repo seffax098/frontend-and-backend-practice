@@ -5,47 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 
 <body>
-    <div id="header">Header</div>
-    <div id="menu">
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="pages/news.html">Новости</a></li>
-            <li><a href="pages/practices.html">Практики</a></li>
-            <li><a href="pages/goods.htm">Товары</a></li>
-            <li><a href="pages/contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    <div id="content">
-        <p>Информация об авторе</p>
-        <img src="images/photo.png" alt="Фото автора" width="200" height="250">
-        <p>Кутилкин Даниил Михайлович</p>
-        <p>ЭФБО-04-24</p>
-        <p>Обо мне: Я родился в Клину 9 ноября 2006 года. Закончил школу, поступил в университет. Сейчас учусь на
-            фуллстек разработчика.</p>
-        <div>Умею плавать</div>
-        <div>Топ 1 мира в Clash Royale</div>
-        <div>3 lvl Faceit</div>
-        <div>Профессионально смотрю тиктоки</div>
-        <div>
-            Мой опыт работы:
-            <div>
-                Опыт 1<br>
-                Дегустатор колбасы в Ашане.
+    <div class="page-container">
+        <div class="header">Header</div>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/goods.htm">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="profile-header">
+                <h1>Информация об авторе</h1>
+                <img src="images/photo.png" alt="Фото автора" width="200" height="250">
+                <h2>Кутилкин Даниил Михайлович</h2>
+                <p>ЭФБО-04-24</p>
             </div>
-            <div>
-                Опыт 2<br>
-                Работал сборщиком монет в фонтане.
+
+            <div class="about-me">
+                <p>Обо мне: Я родился в Клину 9 ноября 2006 года. Закончил школу, поступил в университет. Сейчас учусь
+                    на
+                    фуллстек разработчика.</p>
             </div>
-            <div>
-                Опыт 3<br>
-                Украшал школу к новому году.
+
+            <div class="skills-container">
+                <div class="skill-tag">Умею плавать</div>
+                <div class="skill-tag">Топ 1 мира в Clash Royale</div>
+                <div class="skill-tag">3 lvl Faceit</div>
+                <div class="skill-tag">Профессионально смотрю тиктоки</div>
+            </div>
+
+            <div class="experience-section">
+                <h2 class="section-title">Мой опыт работы:</h2>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 1</h3>
+                    <p class="experience-desc">Дегустатор колбасы в Ашане.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 2</h3>
+                    <p class="experience-desc">Работал сборщиком монет в фонтане.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 3</h3>
+                    <p class="experience-desc">Украшал школу к новому году.</p>
+                </div>
+
             </div>
         </div>
+        <div class="footer">Футер</div>
     </div>
-    <div id="footer">Футер</div>
 </body>
 
 </html>
