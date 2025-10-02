@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Семестровая работа</title>
     <link rel="stylesheet" href="style/styles.css">
 </head>
 
 <body>
     <div class="page-container">
-        <div class="header">Header</div>
-        <div class="nav">
+        <header class="header">
+            <h1>Header</h1>
+        </header>
+
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
@@ -19,46 +22,55 @@
                 <li class="nav-item"><a class="nav-link" href="pages/goods.htm">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        <div class="content">
-            <div class="profile-header">
+        </nav>
+
+        <main class="content">
+            <article class="profile-header">
                 <h1 class="profile-title">Информация об авторе</h1>
                 <img class="profile-photo" src="images/photo.png" alt="Фото автора" width="200" height="250">
                 <h2 class="profile-name">Кутилкин Даниил Михайлович</h2>
                 <p class="profile-group">ЭФБО-04-24</p>
-            </div>
+            </article>
 
-            <div class="about-me">
+            <section class="about-me">
+                <h2>Обо мне</h2>
                 <p>Обо мне: Я родился в Клину 9 ноября 2006 года. Закончил школу, поступил в университет. Сейчас учусь
                     на
                     фуллстек разработчика.</p>
-            </div>
+            </section>
 
-            <div class="skills-container">
-                <div class="skill-tag">Умею плавать</div>
-                <div class="skill-tag">Топ 1 мира в Clash Royale</div>
-                <div class="skill-tag">3 lvl Faceit</div>
-                <div class="skill-tag">Профессионально смотрю тиктоки</div>
-            </div>
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">Умею плавать</div>
+                    <div class="skill-tag">Топ 1 мира в Clash Royale</div>
+                    <div class="skill-tag">3 lvl Faceit</div>
+                    <div class="skill-tag">Профессионально смотрю тиктоки</div>
+                </div>
+            </section>
 
-            <div class="experience-section">
+            <section class="experience-section">
                 <h2 class="section-title">Мой опыт работы:</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Дегустатор колбасы в Ашане.</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">Работал сборщиком монет в фонтане.</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Украшал школу к новому году.</p>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        <p class="experience-desc">Дегустатор колбасы в Ашане.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        <p class="experience-desc">Работал сборщиком монет в фонтане.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        <p class="experience-desc">Украшал школу к новому году.</p>
+                    </article>
                 </div>
 
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>Футер</p>
+        </footer>
     </div>
 </body>
 

@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Семестровая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body>
     <div class="page-container">
-        <div class="header">Header</div>
-        <div class="nav">
+        <header class="header">
+            <h1>Header</h1>
+        </header>
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -19,29 +21,50 @@
                 <li class="nav-item"><a class="nav-link" href="goods.htm">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        <div class="content">
-            <h2 class="section-title">Наши товары</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods1.png" alt="Шуба из экомеха">
-                    <h3 class="product-name">Шуба из экомеха ЦУМ David Koma</h3>
-                    <p class="product-price">340.000 рублей</p>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods2.png" alt="Шуба из норки">
-                    <h3 class="product-name">Шуба из норки ЦУМ MVST</h3>
-                    <p class="product-price">1.455.000 рублей</p>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods3.png" alt="Шуба из соболя">
-                    <h3 class="product-name">Шуба из соболя ЦУМ Manzoni</h3>
-                    <p class="product-price">4.370.000 рублей</p>
-                </div>
-            </div>
-        </div>
+        </nav>
+        <main class="content">
+            <section class="product-section">
 
-        <div class="footer">Футер</div>
+                <h2 class="section-title">Наши товары</h2>
+
+                <div class="products-grid">
+
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img class="product-image" src="../images/goods1.png" alt="Шуба из экомеха">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Шуба из экомеха ЦУМ David Koma</h3>
+                            <p class="product-price">340.000 рублей</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img class="product-image" src="../images/goods2.png" alt="Шуба из норки">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Шуба из норки ЦУМ MVST</h3>
+                            <p class="product-price">1.455.000 рублей</p>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img class="product-image" src="../images/goods3.png" alt="Шуба из соболя">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Шуба из соболя ЦУМ Manzoni</h3>
+                            <p class="product-price">4.370.000 рублей</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Футер</p>
+        </footer>
     </div>
 </body>
 
