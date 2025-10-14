@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
+    <script src="theme-toggle.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа</title>
@@ -9,56 +17,49 @@
 </head>
 
 <body>
-    <div class="page-container">
+    <div class="page">
         <header class="header">
-            <h1>Header</h1>
+            <h1 class="header__title">Header</h1>
         </header>
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.htm">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-        <main class="content">
-            <section class="news-container">
-                <h2 class="section-title">Последние новости</h2>
-                <article class="news-card">
-                    <header>
-                        <h2 class="news-title">Холодная еда в Юни фуде</h2>
-                        <p class="news-meta"><em>Дата: 25 сентября 2025 г. Автор: Даниил Кутилкин</em></p>
-                    </header>
-                    <div class="news-content">
-                        <p class="news-text">Cегодня в Юни фуде очень большие очереди и холодная еда. Не советую туда
-                            идти!
-                        </p>
-                    </div>
+        <button class="btn btn--ghost" id="themeToggle" type="button" aria-pressed="false" title="Переключить тему">
+            Тема
+        </button>
+
+
+        <main class="news">
+            <section class="news__list">
+                <h2 class="news__title">Последние новости</h2>
+                <article class="news-item">
+                    <h2 class="news-item__title">Холодная еда в Юни фуде</h2>
+                    <p class="news-item__date">Дата: 25 сентября 2025 г. Автор: Даниил Кутилкин</p>
+                    <p class="news-item__text">Cегодня в Юни фуде очень большие очереди и холодная еда. Не советую туда
+                        идти! </p>
 
                 </article>
 
-                <article class="news-card">
-                    <header>
-                        <h2 class="news-title">Пробки в Москве</h2>
-                        <p class="news-meta"><em>Дата: 13 сентября 2025 г. Автор: Даниил Кутилкин</em></p>
-                    </header>
-                    <div class="news-content">
-                        <p class="news-text">Из-за дня города в Мосвке образовались огромные пробки. Больше чем обычно!
-                        </p>
-                    </div>
+                <article class="news-item">
+                    <h2 class="news-item__title">Пробки в Москве</h2>
+                    <p class="news-item__date">Дата: 13 сентября 2025 г. Автор: Даниил Кутилкин</p>
+                    <p class="news-item__text">Из-за дня города в Мосвке образовались огромные пробки. Больше чем
+                        обычно!</p>
                 </article>
 
-                <article class="news-card">
-                    <header>
-                        <h2 class="news-title">Перекрыто движение на улицах Москвы</h2>
-                        <p class="news-meta"><em>Дата: 1 сентября 2025 г. Автор: Даниил Кутилкин</em></p>
-                    </header>
-                    <div class="news-content">
-                        <p class="news-text">Из-за первого сентября перекрыто движение на улицах столицы. Все для того,
-                            чтобы дети безопасно дошли до школ.
-                        </p>
-                    </div>
+                <article class="news-item">
+                    <h2 class="news-item__title">Перекрыто движение на улицах Москвы</h2>
+                    <p class="news-item__date">Дата: 1 сентября 2025 г. Автор: Даниил Кутилкин</p>
+                    <p class="news-item__text">Из-за первого сентября перекрыто движение на улицах столицы. Все для
+                        того,
+                        чтобы дети безопасно дошли до школ.
+                    </p>
                 </article>
             </section>
         </main>

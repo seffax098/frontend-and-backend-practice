@@ -2,236 +2,98 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
+    <script src="theme-toggle.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
     <link rel="stylesheet" href="../style/styles.css">
-    <style>
-        /* Стили для модального окна */
-        dialog::backdrop {
-            background: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s ease;
-        }
-
-        dialog {
-            border: none;
-            border-radius: 12px;
-            padding: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: slideIn 0.3s ease;
-            max-width: 500px;
-            width: 90vw;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px 12px 0 0;
-            margin: 0;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .modal-content {
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e9ecef;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #2c3e50;
-            border: 2px solid #e9ecef;
-        }
-
-        .btn-secondary:hover {
-            background: #e9ecef;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Адаптивность */
-        @media (max-width: 600px) {
-            dialog {
-                margin: 1rem;
-                width: calc(100vw - 2rem);
-            }
-
-            .modal-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="page-container">
+    <div class="page">
         <header class="header">
-            <h1>Header</h1>
+            <h1 class="header__title">Header</h1>
         </header>
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.htm">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-        <main class="content">
-            <section class="contacts-container">
-                <h2 class="section-title">Наши контакты</h2>
+        <button class="btn btn--ghost" id="themeToggle" type="button" aria-pressed="false" title="Переключить тему">
+            Тема
+        </button>
 
-                <article class="contact-info">
-                    <h3>Электронная почта</h3>
-                    <p>Адрес электронной почты: dkutilkin@gmail.com</p>
+        <main class="contacts">
+            <section class="contacts__container">
+                <h2 class="contacts__title">Наши контакты</h2>
+
+                <article class="contact__info">
+                    <h3 class="contacts__title">Электронная почта</h3>
+                    <p class="contacts__title">Адрес электронной почты: dkutilkin@gmail.com</p>
                 </article>
 
-                <article class="contact-info">
-                    <h3>Физический адрес</h3>
-                    <p>Адрес: г. Клин, ул Гайдара, 51</p>
+                <article class="contact__info">
+                    <h3 class="contacts__title">Физический адрес</h3>
+                    <p class="contacts__title">Адрес: г. Клин, ул Гайдара, 51</p>
                 </article>
 
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <h3>Телефон</h3>
-                        <p>+7 (925) 358-99-59</p>
+                <div class="contact__grid">
+                    <div class="contact__item">
+                        <h3 class="contacts__title">Телефон</h3>
+                        <p class="contacts__title">+7 (925) 358-99-59</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Время работы</h3>
-                        <p>Пн-Пт: 9:00-18:00</p>
+                    <div class="contact__item">
+                        <h3 class="contacts__title">Время работы</h3>
+                        <p class="contacts__title">Пн-Пт: 9:00-18:00</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Социальные сети</h3>
-                        <p>VK, Telegram, WhatsApp</p>
+                    <div class="contact__item">
+                        <h3 class="contacts__title">Социальные сети</h3>
+                        <p class="contacts__title">VK, Telegram, WhatsApp</p>
                     </div>
                 </div>
 
-                <button class="contact-button" onclick="contactModal.showModal()">Связаться с нами</button>
+                <button class="contact__button" onclick="contactModal.showModal()">Связаться с нами</button>
             </section>
         </main>
+
         <footer class="footer">
             <p>Футер</p>
         </footer>
-        
+
         <dialog id="contactModal">
-            <div class="modal-header">
-                <h2>Форма обратной связи</h2>
+            <div class="modal__header">
+                <h2 class="modal__header__title">Форма обратной связи</h2>
             </div>
 
-            <div class="modal-content">
+            <div class="modal__content">
                 <form id="feedbackForm" method="dialog">
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="name">Имя <span class="required">*</span></label>
                         <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="phone">Телефон <span class="required">*</span></label>
                         <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="email">Электронная почта <span class="required">*</span></label>
                         <input type="email" id="email" name="email" required placeholder="example@mail.ru">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="category">Категория обращения <span class="required">*</span></label>
                         <select id="category" name="category" required>
                             <option value="">Выберите категорию</option>
@@ -244,17 +106,17 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="message">Текст обращения <span class="required">*</span></label>
                         <textarea id="message" name="message" required
                             placeholder="Опишите вашу проблему или вопрос..."></textarea>
                     </div>
 
-                    <div class="modal-actions">
+                    <div class="modal__actions">
                         <!-- Кнопка отмены с автоматическим закрытием через form method="dialog" -->
-                        <button type="submit" class="btn btn-secondary">Отмена</button>
+                        <button type="submit" class="btn btn__secondary"">Отмена</button>
                         <!-- Кнопка отправки с обработкой через JavaScript -->
-                        <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                        <button type="button" class="btn btn__primary" onclick="submitForm()">Отправить</button>
                     </div>
                 </form>
             </div>
